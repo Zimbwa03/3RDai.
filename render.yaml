@@ -7,3 +7,10 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 18.17.0
+    buildFilter:
+      paths:
+        - src/**
+        - public/**
+        - package.json
+        - tailwind.config.js
+        - postcss.config.js
