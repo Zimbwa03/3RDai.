@@ -2,7 +2,7 @@ services:
   - type: web
     name: 3rd-ai-medical-dashboard
     env: static
-    buildCommand: npm run render-build
+    buildCommand: npm install && npm run build
     staticPublishPath: ./build
     envVars:
       - key: NODE_VERSION

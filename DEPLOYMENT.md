@@ -27,7 +27,7 @@ npm install && npm run build
 - Choose "Static Site" as the service type
 
 ### 2. Build Settings
-- **Build Command**: `npm run render-build` (or use the render.yaml configuration)
+- **Build Command**: `npm install && npm run build` (or use the render.yaml configuration)
 - **Publish Directory**: `build`
 - **Node Version**: 18.17.0 (specified in render.yaml)
 
@@ -57,7 +57,7 @@ Ensure these are set in Render:
 - `NPM_CONFIG_PRODUCTION`: `false`
 
 ### 2. Force NPM in Build Command
-Use: `npm run render-build` or `npm ci && npm run build`
+Use: `npm install && npm run build`
 
 ### 3. Check Package Manager Detection
 Render might detect yarn if:
