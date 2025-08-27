@@ -2,11 +2,15 @@ services:
   - type: web
     name: 3rd-ai-medical-dashboard
     env: static
-    buildCommand: npm install && npm run build
+    buildCommand: npm run render-build
     staticPublishPath: ./build
     envVars:
       - key: NODE_VERSION
         value: 18.17.0
+      - key: NPM_CONFIG_PRODUCTION
+        value: false
+      - key: USE_YARN
+        value: false
     buildFilter:
       paths:
         - src/**
@@ -14,3 +18,4 @@ services:
         - package.json
         - tailwind.config.js
         - postcss.config.js
+        - .nvmrc

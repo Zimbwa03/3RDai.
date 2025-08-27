@@ -27,9 +27,14 @@ npm install && npm run build
 - Choose "Static Site" as the service type
 
 ### 2. Build Settings
-- **Build Command**: `npm install && npm run build`
+- **Build Command**: `npm run render-build` (or use the render.yaml configuration)
 - **Publish Directory**: `build`
 - **Node Version**: 18.17.0 (specified in render.yaml)
+
+### 3. Force NPM Usage
+If Render still tries to use yarn, add these environment variables:
+- `USE_YARN`: `false`
+- `NPM_CONFIG_PRODUCTION`: `false`
 
 ### 3. Environment Variables (Optional)
 If you need to configure your backend URL:
@@ -41,6 +46,29 @@ If you still encounter issues, try this build command in Render:
 ```bash
 npm install --production=false && npm run build
 ```
+
+## Fixing Yarn vs NPM Issues
+
+If Render keeps using `yarn build` instead of `npm build`:
+
+### 1. Check Environment Variables
+Ensure these are set in Render:
+- `USE_YARN`: `false`
+- `NPM_CONFIG_PRODUCTION`: `false`
+
+### 2. Force NPM in Build Command
+Use: `npm run render-build` or `npm ci && npm run build`
+
+### 3. Check Package Manager Detection
+Render might detect yarn if:
+- `yarn.lock` exists in your repository
+- `package-lock.json` is missing
+- Yarn-specific files are present
+
+### 4. Manual Override
+In Render dashboard, manually set:
+- **Build Command**: `npm ci && npm run build`
+- **Publish Directory**: `build`
 
 ## Troubleshooting
 
